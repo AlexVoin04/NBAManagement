@@ -1,0 +1,19 @@
+﻿<Page x:Class="NBAManagement.Views.VisitorMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBAManagement.Views"
+      mc:Ignorable="d" 
+      Title="Visitor Main">
+
+    <Border Margin="75" BorderThickness="1px" BorderBrush="{StaticResource FooterColor}">
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+
+            <Button Command="{Binding NavigateMainTeamsViewCommand}" Content="Teams" Style="{StaticResource UserTypeButton}" FontSize="24px" Width="220" Margin="10"/>
+            <Button Command="{Binding NavigateMainPlayersViewCommand}" Grid.Column="1" Content="Players" Style="{StaticResource UserTypeButton}" Width="220" FontSize="24px" Margin="10"/>
+            <Button Command="{Binding NavigateMatchupListViewCommand}" Grid.Row="1" Content="Mutchups" Style="{StaticResource UserTypeButton}" Width="220" FontSize="24px" Margin="10"/>
+            <Button Command="{Binding NavigatePhotosViewCommand}" Grid.Column="1" Grid.Row="1" Content="Photos" Style="{StaticResource UserTypeButton}" Width="220" FontSize="24px" Margin="10"/>
+        </WrapPanel>
+    </Border>
+</Page>

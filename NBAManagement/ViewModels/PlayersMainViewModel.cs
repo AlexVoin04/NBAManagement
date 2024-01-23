@@ -177,7 +177,7 @@ namespace NBAManagement.ViewModels
                     .Select(pit => new PlayersMainPlayerItemViewModel(pit));
             }
         }
-        private void UpdateEntities()
+        public void UpdateEntities()
         {
 
             filteredPlayers = new PagedEnumerable<PlayerInTeam>(players, MAX_PAGE_SIZE)
@@ -187,10 +187,6 @@ namespace NBAManagement.ViewModels
                 .ToList()
             };
             ChangePage();
-            if (PlayersOnPage is ICollection<PlayersMainPlayerItemViewModel> collection)
-            {
-                collection.Clear();
-            }
         }
         private void ChangePage()
         {
@@ -227,16 +223,16 @@ namespace NBAManagement.ViewModels
             if(filterName == null)
                 return true;
 
-            return (playerInTeam.Player.FirstName).Contains(filterName) 
-                || (playerInTeam.Player.LastName).Contains(filterName);
+            return (playerInTeam.Player.FirstName).Contains(filterName);
+                //|| (playerInTeam.Player.LastName).Contains(filterName);
         }
         private bool IsPassFirstCharInNameFilter(PlayerInTeam playerInTeam)
         {
             if(!firstCharInNameFilter.HasValue)
                 return true;
 
-            return playerInTeam.Player.FirstName.FirstOrDefault() == firstCharInNameFilter
-                    || playerInTeam.Player.LastName.FirstOrDefault() == firstCharInNameFilter;
+            return playerInTeam.Player.FirstName.FirstOrDefault() == firstCharInNameFilter;
+                    //|| playerInTeam.Player.LastName.FirstOrDefault() == firstCharInNameFilter;
         }
         public class PlayersMainPlayerItemViewModel
         { 

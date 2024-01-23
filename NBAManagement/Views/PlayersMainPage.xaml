@@ -84,30 +84,42 @@
                 <ColumnDefinition Width="39*"/>
                 <ColumnDefinition Width="181*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="PlayersDataGrid" ItemsSource="{Binding PlayersOnPage}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="False" IsReadOnly="True" CellStyle="{StaticResource CenterTextDataGridCellStyle}" RowHeight="40" Margin="6,6,6,6" MinRowHeight="{Binding ElementName=PlayersDataGrid, Path=ActualHeight, Converter={StaticResource NumDivisionConverter},ConverterParameter=4}" Grid.ColumnSpan="2">
-                <DataGridTemplateColumn Header="Picture" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Stretch="UniformToFill" HorizontalAlignment="Center" Margin="3">
-                                <Image.Source>
-                                    <Binding Path="Photo">
-                                        <Binding.TargetNullValue>
-                                            <ImageSource>/Resources/person.png</ImageSource>
-                                        </Binding.TargetNullValue>
-                                    </Binding>
-                                </Image.Source>
-                            </Image>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="No." Width="*" Binding="{Binding ShirtNumber, StringFormat={}№{0}}"/>
-                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Team" Width="*" Binding="{Binding TeamName}"/>
-                <DataGridTextColumn Header="Position" Width="*" Binding="{Binding Position}"/>
-                <DataGridTextColumn Header="Weight" Width="*" Binding="{Binding Weight}"/>
-                <DataGridTextColumn Header="Height" Width="*" Binding="{Binding Height}"/>
-                <DataGridTextColumn Header="Experience" Width="*" Binding="{Binding Experience}"/>
-                <DataGridTextColumn Header="Country" Width="*" Binding="{Binding County}"/>
+            <DataGrid x:Name="PlayersDataGrid" ItemsSource="{Binding PlayersOnPage}" 
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Disabled"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      CellStyle="{StaticResource CenterTextDataGridCellStyle}"
+                      RowHeight="40" Margin="6,6,6,6"
+                      MinRowHeight="{Binding ElementName=PlayersDataGrid, Path=ActualHeight, Converter={StaticResource NumDivisionConverter},ConverterParameter=4}" 
+                      Grid.ColumnSpan="2" IsSynchronizedWithCurrentItem="True" 
+                      MouseDoubleClick="PlayersDataGrid_MouseDoubleClick" 
+                       >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Picture" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Stretch="UniformToFill" HorizontalAlignment="Center" Margin="3">
+                                    <Image.Source>
+                                        <Binding Path="Photo">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>/Resources/person.png</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="No." Width="*" Binding="{Binding ShirtNumber, StringFormat={}№{0}}"/>
+                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding FullName}"/>
+                    <DataGridTextColumn Header="Team" Width="*" Binding="{Binding TeamName}"/>
+                    <DataGridTextColumn Header="Position" Width="*" Binding="{Binding Position}"/>
+                    <DataGridTextColumn Header="Weight" Width="*" Binding="{Binding Weight}"/>
+                    <DataGridTextColumn Header="Height" Width="*" Binding="{Binding Height}"/>
+                    <DataGridTextColumn Header="Experience" Width="*" Binding="{Binding Experience}"/>
+                    <DataGridTextColumn Header="Country" Width="*" Binding="{Binding County}"/>
+                </DataGrid.Columns>
+                
             </DataGrid>
         </Grid>
         <StackPanel Grid.Row="2" HorizontalAlignment="Left" Orientation="Horizontal">

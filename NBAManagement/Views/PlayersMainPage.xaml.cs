@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NBAManagement.ViewModels;
+using static NBAManagement.ViewModels.PlayersMainViewModel;
 
 namespace NBAManagement.Views
 {
@@ -42,8 +43,21 @@ namespace NBAManagement.Views
             radioForegroundControlHighlighter.HighlightControl(senderButton);
         }
 
-        private void PlayersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void PlayersDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var viewModel = DataContext as PlayersMainViewModel;
+
+            if (viewModel != null)
+            {
+                // Получите выбранный элемент из DataGrid
+                var selectedPlayerItem = PlayersDataGrid.SelectedItem as PlayersMainPlayerItemViewModel;
+
+                // Проверьте, что элемент не null и выполните команду
+                if (selectedPlayerItem != null)
+                {
+                    viewModel.OpenPlayerDetailCommand.Execute(null);
+                }
+            }
         }
     }
 }

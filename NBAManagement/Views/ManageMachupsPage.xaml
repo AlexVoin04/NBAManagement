@@ -42,7 +42,7 @@
             <TabItem Header="Regular Season" Width="100" Height="23" TextBlock.TextAlignment="Center" Padding="4" BorderBrush="{StaticResource DarkGray}" >
                 <Grid>
                     <Button x:Name="addNewMatchup" Click="addNewMatchup_Click" Content="+Add new matchup"  Margin="7" Template="{StaticResource RoundButtonTemplate}" Width="170" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <DataGrid Margin="5, 40" Name="regularDataGrid" AutoGenerateColumns="False" RowHeight="20" CellStyle="{StaticResource CenterTextDataGridCellStyle}" IsReadOnly="False" AlternatingRowBackground="LightGray">
+                    <DataGrid Margin="5, 40" Name="regularDataGrid" AutoGenerateColumns="False" MinRowHeight="20" CellStyle="{StaticResource CenterTextDataGridCellStyle}" IsReadOnly="False" AlternatingRowBackground="LightGray">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Starttime, StringFormat={}{0:yyyy/MM/dd}}" Header="Data" Width="*"/>
                             <DataGridTextColumn Binding="{Binding TeamAway.TeamName}" Header="Team(Away)" Width="*"/>

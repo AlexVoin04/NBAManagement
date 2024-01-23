@@ -35,6 +35,8 @@ namespace NBAManagement.Views
             );
             DataContext = new PlayersMainViewModel();
             radioForegroundControlHighlighter.HighlightControl(FirstCharInNameFilterAllButton);
+
+            PlayersDataGrid.MouseDoubleClick += PlayersDataGrid_MouseDoubleClick;
         }
 
         private void OnSetFirstCharInNameFilterClick(object sender, RoutedEventArgs e)
@@ -45,18 +47,13 @@ namespace NBAManagement.Views
 
         private void PlayersDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var viewModel = DataContext as PlayersMainViewModel;
-
-            if (viewModel != null)
+            if (PlayersDataGrid.SelectedItem != null)
             {
-                // Получите выбранный элемент из DataGrid
-                var selectedPlayerItem = PlayersDataGrid.SelectedItem as PlayersMainPlayerItemViewModel;
+                // Предполагая, что ваш ViewModel установлен как DataContext
+                PlayersMainViewModel.PlayersMainPlayerItemViewModel selectedPlayer = (PlayersMainViewModel.PlayersMainPlayerItemViewModel)PlayersDataGrid.SelectedItem;
 
-                // Проверьте, что элемент не null и выполните команду
-                if (selectedPlayerItem != null)
-                {
-                    viewModel.OpenPlayerDetailCommand.Execute(null);
-                }
+                // Выполнить команду OpenPlayerDetailCommand для выбранного игрока
+                selectedPlayer.OpenPlayerDetailCommand.Execute(null);
             }
         }
     }

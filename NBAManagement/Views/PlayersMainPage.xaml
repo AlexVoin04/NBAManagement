@@ -117,14 +117,14 @@
                     <DataGridTextColumn Header="Weight" Width="*" Binding="{Binding Weight}"/>
                     <DataGridTextColumn Header="Height" Width="*" Binding="{Binding Height}"/>
                     <DataGridTextColumn Header="Experience" Width="*" Binding="{Binding Experience}"/>
-                    <DataGridTextColumn Header="Country" Width="*" Binding="{Binding County}"/>
+                    <DataGridTextColumn Header="Country" Width="*" Binding="{Binding Country}"/>
                 </DataGrid.Columns>
                 
             </DataGrid>
         </Grid>
         <StackPanel Grid.Row="2" HorizontalAlignment="Left" Orientation="Horizontal">
             <Button Command="{Binding GoFirstPageCommand}" Content="|&lt;" Margin="5" Width="25" Height="25" Background="{StaticResource FooterColor}" Foreground="White"/>
-            <Button Command="{Binding GoFirstPageCommand}" Content="&lt;" Margin="5" Width="25" Height="25" Background="{StaticResource FooterColor}" Foreground="White"/>
+            <Button Command="{Binding GoPriviusPageCommand}" Content="&lt;" Margin="5" Width="25" Height="25" Background="{StaticResource FooterColor}" Foreground="White"/>
             <TextBox  Width="45px" Margin="8" Text="{Binding CurrentPageNum}" TextAlignment="Center"/>
             <TextBlock Text="of" Style="{StaticResource NormalText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Style="{StaticResource NormalText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 10, 0" Text="{Binding PageCount}"/>

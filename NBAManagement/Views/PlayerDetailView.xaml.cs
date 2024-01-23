@@ -30,8 +30,8 @@ namespace NBAManagement.Views
             InitializeComponent();
             DataContext = new PlayerDetailViewModel(player);
             buttonHighlighter = new RadioBackgroundControlHighlighter(
-                (SolidColorBrush)FindResource("buttonStandartColor"), 
-                (SolidColorBrush)FindResource("buttonHighlightColor")
+                (SolidColorBrush)FindResource("ButtonStandartColor"), 
+                (SolidColorBrush)FindResource("ButtonHighlightColor")
             );
         }
 

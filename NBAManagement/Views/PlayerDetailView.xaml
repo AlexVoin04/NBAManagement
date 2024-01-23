@@ -49,7 +49,7 @@
             </Grid.ColumnDefinitions>
             <Image  Grid.RowSpan="5" Margin="10, 20, 10, 70">
                 <Image.Source>
-                    <Binding Path="PlayerInTeamViewModel.Photo">
+                    <Binding Path="Model.Photo">
                         <Binding.TargetNullValue>
                             <ImageSource>/Resources/person.png</ImageSource>
                         </Binding.TargetNullValue>
@@ -57,23 +57,23 @@
                 </Image.Source>
             </Image>
             <Border Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Margin="0, 0, 40, 0" BorderThickness="0, 0, 0, 1" VerticalAlignment="Bottom" BorderBrush="{StaticResource DarkGray}">
-                <TextBlock Text="{Binding PlayerInTeamViewModel.FullName}" FontSize="24px" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Model.FullName}" FontSize="24px" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
             </Border>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1">
-                <TextBlock Text="{Binding Path=PlayerInTeamViewModel.ShirtNumber, StringFormat=#{0}}"/>
+                <TextBlock Text="{Binding Path=Model.ShirtNumber, StringFormat=#{0}}"/>
                 <TextBlock Text="|" Margin="15, 0, 15, 0"/>
-                <TextBlock Text="{Binding PlayerInTeamViewModel.Height}"/>
+                <TextBlock Text="{Binding Model.Height}"/>
                 <TextBlock Text="|" Margin="15, 0, 15, 0"/>
-                <TextBlock Text="{Binding PlayerInTeamViewModel.TeamName}"/>
+                <TextBlock Text="{Binding Model.TeamName}"/>
             </StackPanel>
             <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Text="Born"/>
-            <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Text="{Binding PlayerInTeamViewModel.DateOfBirth, StringFormat='yyyy-MM-dd'}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
+            <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Text="{Binding Model.DateOfBirth, StringFormat='yyyy-MM-dd'}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
             <TextBlock Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Text="Experience"/>
-            <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Text="{Binding Path=PlayerInTeamViewModel.YearExperience, StringFormat={}{0} years}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
+            <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Text="{Binding Path=Model.YearExperience, StringFormat={}{0} years}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
             <TextBlock Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Text="College"/>
-            <TextBlock Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Text="{Binding PlayerInTeamViewModel.College}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
+            <TextBlock Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Text="{Binding Model.College}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
             <TextBlock Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Text="Salary"/>
-            <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Text="{Binding PlayerInTeamViewModel.Salary, StringFormat={}${0:F0}}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
+            <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Text="{Binding Model.Salary, StringFormat={}${0:F0}}" Foreground="{StaticResource DarkGray}" FontWeight="Bold"/>
         </Grid>
         <StackPanel Grid.Column="1" Margin="15">
             <TextBlock Text="{Binding Source={StaticResource Season}, Path=LastSeason}" Margin="10"/>

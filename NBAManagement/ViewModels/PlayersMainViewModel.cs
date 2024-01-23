@@ -251,6 +251,7 @@ namespace NBAManagement.ViewModels
             public decimal Height => PlayerInTeamViewModel.Height;
             public int Experience => PlayerInTeamViewModel.YearExperience;
             public string Country => PlayerInTeamViewModel.County;
+            public byte[] Photo => PlayerInTeamViewModel.Photo;
         }
     }
 }

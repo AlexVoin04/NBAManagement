@@ -45,6 +45,8 @@ namespace NBAManagement.ViewModels
 
             BiginingIntervalDate = DateTime.Now.AddYears(-10);
             EndIntervalDate = DateTime.Now;
+
+            playerStatisticsInDateRange = new ObservableCollection<PlayerStatistics>();
             UpdatePlayerStatisticsInDateRange();
         }
 
@@ -67,7 +69,7 @@ namespace NBAManagement.ViewModels
             set
             {
                 biginingIntervalDate = value;
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(BiginingIntervalDate)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BiginingIntervalDate)));
             }
         }
         public DateTime? EndIntervalDate
@@ -76,7 +78,7 @@ namespace NBAManagement.ViewModels
             set
             {
                 endIntervalDate = value;
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(EndIntervalDate)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EndIntervalDate)));
             }
         }
         public string ShowChartXPlayerStatistic => currentChartXPlayerStatistic.ToString();
@@ -100,9 +102,9 @@ namespace NBAManagement.ViewModels
             set
             {
                 currentChartXPlayerStatistic = value;
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(ChartPoints)));
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(ShowChartXPlayerStatistic)));
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(AvarangeOfChartStatistic)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ChartPoints)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ShowChartXPlayerStatistic)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AvarangeOfChartStatistic)));
             }
         }
 
@@ -161,6 +163,10 @@ namespace NBAManagement.ViewModels
         {
             get
             {
+                if (playerStatisticsInDateRange == null)
+                {
+                    return Enumerable.Empty<PlayerStatisticCharPoint>();
+                }
                 return playerStatisticsInDateRange
                     .Select(ps => new PlayerStatisticCharPoint(
                         GetChartXPlayerStatisticField(ps),
